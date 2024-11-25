@@ -6,7 +6,6 @@ import com.owl.spring.boot_security.demo.Service.RegistrationService;
 import com.owl.spring.boot_security.demo.Service.RoleService;
 import com.owl.spring.boot_security.demo.Service.UserService;
 import com.owl.spring.boot_security.demo.util.UserValidator;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
