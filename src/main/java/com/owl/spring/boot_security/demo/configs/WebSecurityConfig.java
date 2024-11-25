@@ -28,7 +28,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .and()
                 .authorizeRequests()
-                .antMatchers("/admin/*", "/api/*").hasRole("ADMIN")
+                .antMatchers("/admin/*", "/api/new", "/api/update", "/api/user", "/api/users", "/api/delete", "/api/roles").hasRole("ADMIN")
                 .antMatchers("/auth/login", "/error", "/auth/registration", "/auth/success_registration")
                 .permitAll()
                 .anyRequest().hasAnyRole("USER", "ADMIN")

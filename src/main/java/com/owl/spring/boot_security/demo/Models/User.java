@@ -29,7 +29,7 @@ public class User implements UserDetails {
     @Column(name = "age")
     private byte age;
     @Column(name = "email")
-    @Email(message = "Поле email некорректно")
+    @Email(message = "Field email is incorrect")
     private String email;
     @Column(name = "roles")
     @ManyToMany(fetch = FetchType.LAZY)

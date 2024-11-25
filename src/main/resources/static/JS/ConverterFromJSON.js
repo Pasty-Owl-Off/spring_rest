@@ -36,7 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
             })
                 .then(response => {
                     if (response.ok) {
-
+                        const closeButton = document.getElementById('closeButtonEditModal');
+                        if (closeButton) {
+                            closeButton.click();
+                        }
                         populateUsersTableAndModals();
                     } else {
                         return response.json().then(errors => {
@@ -75,7 +78,10 @@ document.addEventListener("DOMContentLoaded", () => {
             })
                 .then(response => {
                     if (response.ok) {
-                        populateUsersTableAndModals
+                        populateUsersTableAndModals();
+                        const errorFields = Array.from(document.querySelectorAll('[id$="NewUserError"]'));
+                        errorFields.forEach(errorField => errorField.textContent = '');
+
                         alert('New user is created');
                     } else {
                         return response.json().then(errors => {
@@ -102,9 +108,10 @@ document.addEventListener("DOMContentLoaded", () => {
             })
                 .then(response => {
                     if (response.ok) {
-                        const modalElement = document.getElementById('delete');
-                        const bootstrapModal = bootstrap.Modal.getInstance(modalElement);
-                        bootstrapModal.hide();
+                        const closeButton = document.getElementById('closeButtonDeleteModal');
+                        if (closeButton) {
+                            closeButton.click();
+                        }
                         populateUsersTableAndModals();
                     }
                 })
@@ -323,6 +330,9 @@ function getAllRoles() {
 function setRolesOfOption() {
     const selectorEdit = document.getElementById('rolesEditUser');
     const selectorNew = document.getElementById('roles');
+
+    selectorEdit.innerHTML = '';
+    selectorNew.innerHTML = '';
 
     getAllRoles()
         .then(roles => {
